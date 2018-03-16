@@ -8,7 +8,7 @@ import org.springframework.cloud.contract.spec.Contract
 Contract.make {
     request {
         method 'GET'
-        url '/person/one'
+        url value(consumer(regex('/person/[0-9]{5}')))
         headers {
             contentType('application/json')
         }
@@ -16,7 +16,7 @@ Contract.make {
     response {
         status 200
         body("""{
-            "id": "${value("1000")}"
+            "id": "${producer(regex('[0-9]{5}'))}"
        }""")
         headers {
             contentType(applicationJson())
