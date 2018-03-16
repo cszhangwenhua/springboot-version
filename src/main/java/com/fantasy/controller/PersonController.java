@@ -30,6 +30,13 @@ public class PersonController {
   }
 
   @ResponseBody
+  @RequestMapping(value = "/goods/{personId}", method = RequestMethod.GET)
+  Goods one(@PathVariable Integer personId, @RequestParam Integer goodsId) {
+    Person person = new Person(personId, "zhang " + personId);
+    return new Goods(goodsId, "Goods" + goodsId, person);
+  }
+
+  @ResponseBody
   @RequestMapping(value = "list", method = RequestMethod.GET)
   List<Person> list() {
     List<Person> list = new ArrayList<>();
@@ -71,5 +78,45 @@ class Person {
       "id=" + id +
       ", name='" + name + '\'' +
       '}';
+  }
+}
+
+
+class Goods {
+  public Integer id;
+  public String name;
+  public Person owner;
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Person getOwner() {
+    return owner;
+  }
+
+  public void setOwner(Person owner) {
+    this.owner = owner;
+  }
+
+  public Goods() {
+  }
+
+  public Goods(Integer id, String name, Person owner) {
+    this.id = id;
+    this.name = name;
+    this.owner = owner;
   }
 }
