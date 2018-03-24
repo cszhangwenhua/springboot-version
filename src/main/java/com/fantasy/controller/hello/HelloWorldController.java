@@ -1,4 +1,4 @@
-package com.fantasy.controller;
+package com.fantasy.controller.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

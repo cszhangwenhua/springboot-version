@@ -127,9 +127,21 @@
                             <contractsDirectory>
                                 src/test/resources/contracts
                             </contractsDirectory>
-                            <baseClassForTests>
-                                com.fantasy.ContractVerifierBase
-                            </baseClassForTests>
+                            <baseClassForTests>com.fantasy.ContractVerifierBase</baseClassForTests>
+                            <baseClassMappings>
+                                <baseClassMapping>
+                                    <contractPackageRegex>.*hello.*
+                                    </contractPackageRegex>
+                                    <baseClassFQN>com.fantasy.HelloWorldControllerBase
+                                    </baseClassFQN>
+                                </baseClassMapping>
+                                <baseClassMapping>
+                                    <contractPackageRegex>.*person.*
+                                    </contractPackageRegex>
+                                    <baseClassFQN>com.fantasy.PersonControllerBase
+                                    </baseClassFQN>
+                                </baseClassMapping>
+                            </baseClassMappings>
                             <!-- Provide the base class for your auto-generated tests -->
                             <basePackageForTests>
                                 com.fantasy.contract.generate

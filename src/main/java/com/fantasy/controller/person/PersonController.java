@@ -1,4 +1,4 @@
-package com.fantasy.controller;
+package com.fantasy.controller.person;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,10 +51,14 @@ public class PersonController {
 class Person {
   public Integer id;
   public String name;
+  public Date createTime;
+  public String headUrl;
 
   public Person(Integer id, String name) {
     this.id = id;
     this.name = name;
+    createTime = new Date();
+    headUrl = "http://www.gravatar.com/avatar/29de90f257ff6d435cac2e9b8e8b7ccb?s=800&d=identicon";
   }
 
   public Integer getId() {
@@ -72,11 +77,29 @@ class Person {
     this.name = name;
   }
 
+  public Date getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getHeadUrl() {
+    return headUrl;
+  }
+
+  public void setHeadUrl(String headUrl) {
+    this.headUrl = headUrl;
+  }
+
   @Override
   public String toString() {
     return "Person{" +
       "id=" + id +
       ", name='" + name + '\'' +
+      ", createTime=" + createTime +
+      ", headUrl='" + headUrl + '\'' +
       '}';
   }
 }
